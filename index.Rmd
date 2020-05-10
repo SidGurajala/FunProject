@@ -108,6 +108,7 @@ cali_covid_map <- cali0 + geom_polygon(color = "ivory", size = 0.3) +
 ```
 
 Now let's take a look at our map! 
+
 ```{r echo = FALSE}
 cali_covid_map
 ```

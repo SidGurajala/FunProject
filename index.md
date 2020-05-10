@@ -109,7 +109,7 @@ little no\_axes trick on stack overflow; it removes things like the axis
 labels and the latitude and longitude labels to produce a cleaner map\!
 I’m going to pair this with our wash1 output to create a map without the
 longitude and latitude labels, and then add a few labels and odds and
-ends, like changing the color scheme, to make a pretty map\!
+ends, like changing the color scheme, to make a more spiffy map\!
 
 ``` r
 no_axes <- theme(
@@ -127,7 +127,7 @@ wash2 <- wash1 + scale_fill_gradient(low = "white", high = "#F21717") +
 wash_covid_map <- wash2 + labs(fill = "Cases")
 ```
 
-Here our output is a map of washington covid cases by county\!
+Here’s our output: a map of washington covid cases by county\!
 ![](index_files/figure-gfm/unnamed-chunk-1-1.png)<!-- -->
 
 ## CALIFORNIA, AN INTEGRATED EXAMPLE:
@@ -169,4 +169,5 @@ cali_covid_map <- cali0 + geom_polygon(color = "ivory", size = 0.3) +
 ```
 
 Now let’s take a look at our map\!
+
 ![](index_files/figure-gfm/unnamed-chunk-3-1.png)<!-- -->
