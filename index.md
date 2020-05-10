@@ -41,12 +41,12 @@ head(washington_df)
 
 The next step includes taking data from the maps library, which has to
 be downloaded externally, of the latitude and longitude of Washington
-state counties. Then we have to join the data frame outputed by the
+state counties. Then we have to join the data frame outputted by the
 map\_data function with our pared down washington\_df data frame. A bit
 of a warning here: the washington\_df doesn’t contain data from all
 counties, but wash\_counties has coordinates for all of them. Rather
-than remove the NA values, I’ve decided to keep them as an indication of
-that data not being included by the New York Times.
+than remove the resulting NA values, I’ve decided to keep them as an
+indication of that data not being included by the New York Times.
 
 ``` r
 library(maps)
@@ -70,7 +70,7 @@ head(wash_counties_deaths_cases)
     ## 6 -118.9804 47.25756     1     6 washington  adams    49      0
 
 This output is what we’ll use to create the map of cases that is the
-objective of this exercise. On to plotting\!
+objective of this whole thing. On to plotting\!
 
 ## MAKING A MAP:
 
@@ -79,7 +79,7 @@ wash\_counties\_deaths\_cases data frame and inputting the latitude and
 longitude coordinates to make an outline of the plot we want to use. The
 fill here is cases, but we could also use deaths as you’ll see in an
 example towards the end of this document. You’ll need to install the
-ggplot2 package seperately.
+ggplot2 package separately.
 
 ``` r
 library(ggplot2)
@@ -93,8 +93,8 @@ as to what actual map projection, in this case the albers projection, we
 want ggplot2 to implement our cases, latitude, and longitude data with.
 The output of the next few lines of code will give you a heatmap of
 cases in Washington state. The grey areas are places in which the values
-are NA, or the data set has on information on cases/deaths for these
-counties.
+are NA and the data set provided no information on cases/deaths for
+these counties.
 
 ``` r
 wash1 <- wash0 + geom_polygon(color = "ivory", size = 0.3) +
@@ -128,12 +128,7 @@ wash_covid_map <- wash2 + labs(fill = "Cases")
 ```
 
 Here our output is a map of washington covid cases by county\!
-
-``` r
-wash_covid_map
-```
-
-![](index_files/figure-gfm/wash_covid_map-1.png)<!-- -->
+![](index_files/figure-gfm/unnamed-chunk-1-1.png)<!-- -->
 
 ## CALIFORNIA, AN INTEGRATED EXAMPLE:
 
@@ -174,9 +169,4 @@ cali_covid_map <- cali0 + geom_polygon(color = "ivory", size = 0.3) +
 ```
 
 Now let’s take a look at our map\!
-
-``` r
-cali_covid_map
-```
-
-![](index_files/figure-gfm/cali_covid_map-1.png)<!-- -->
+![](index_files/figure-gfm/unnamed-chunk-3-1.png)<!-- -->
